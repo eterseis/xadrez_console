@@ -1,0 +1,10 @@
+
+*.json
+*.cache
+*.editorconfig
+*.targets
+*.sln
+*.props
+xadrez_console/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+xadrez_console/obj/Debug/net8.0/xadrez_console.AssemblyInfo.cs
+xadrez_console/obj/Debug/net8.0/xadrez_console.GlobalUsings.g.cs
