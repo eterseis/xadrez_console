@@ -11,11 +11,7 @@ public static class Tela
                 if (tabuleiro.Peca(v, j) == null)
                     Console.Write("- ");
                 else
-                {
                     Console.Write(tabuleiro.Peca(v, j) + " ");
-                }
-
-
             }
             Console.WriteLine();
         }
