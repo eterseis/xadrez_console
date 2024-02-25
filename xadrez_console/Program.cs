@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Posicao p = new Posicao(3, 4);
-        Console.WriteLine(p);
+        Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+        Tela.ImprimirTabuleiro(tabuleiro);
+        int[,] matriz = new int[3, 4];
     }
 }
