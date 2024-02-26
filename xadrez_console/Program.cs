@@ -8,11 +8,21 @@ class Program
     {
         // bool x = true;
         // Console.WriteLine(!x);
-        // int x = 'c' - 'a';
-        // int y = 'b' - 'a';
-        PosicaoXadrez pos = new PosicaoXadrez('c', 7);
-        Console.WriteLine(pos);
-        System.Console.WriteLine(pos.ToPosicao());
+        try
+        {
+            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+            tabuleiro.ColocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(0, 0));
+            tabuleiro.ColocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(1, 3));
+            tabuleiro.ColocarPeca(new Rei(tabuleiro, Cor.Preta), new Posicao(0, 2));
+            tabuleiro.ColocarPeca(new Rei(tabuleiro, Cor.Branca), new Posicao(6, 6));
+
+            Tela.ImprimirTabuleiro(tabuleiro);
+        }
+        catch (TabuleiroException x)
+        {
+            Console.WriteLine(x.Message);
+        }
+
         int[,] matriz = new int[3, 4];
     }
 }
