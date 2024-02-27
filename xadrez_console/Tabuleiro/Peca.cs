@@ -14,4 +14,8 @@ public class Peca
         Cor = cor;
         QntMovs = 0;
     }
+    public void IncrementarQtMovimentos()
+    {
+        QntMovs++;
+    }
 }

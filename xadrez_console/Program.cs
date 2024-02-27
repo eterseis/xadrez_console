@@ -10,13 +10,19 @@ class Program
         // Console.WriteLine(!x);
         try
         {
-            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
-            tabuleiro.ColocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(0, 0));
-            tabuleiro.ColocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(1, 3));
-            tabuleiro.ColocarPeca(new Rei(tabuleiro, Cor.Preta), new Posicao(0, 2));
-            tabuleiro.ColocarPeca(new Rei(tabuleiro, Cor.Branca), new Posicao(6, 6));
+            PartidaDeXadrez partida = new PartidaDeXadrez();
+            while (!partida.Terminada)
+            {
+                Console.Clear();
+                Tela.ImprimirTabuleiro(partida._tabuleiro);
+                Console.Write("Origem: ");
+                Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                Console.Write("Destino: ");
+                Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+               partida.ExecMovimento(origem, destino);
+                
+            }
 
-            Tela.ImprimirTabuleiro(tabuleiro);
         }
         catch (TabuleiroException x)
         {
