@@ -1,6 +1,6 @@
 ﻿namespace xadrez_console;
 
-public class Peca
+public abstract class Peca
 {
     public Posicao Posicao { get; set; }
     public Cor Cor { get; protected set; }
@@ -18,4 +18,10 @@ public class Peca
     {
         QntMovs++;
     }
+    public virtual bool PoderMover(Posicao pos)
+    {
+        Peca p = Tabuleiro.Peca(pos);
+        return p == null || p.Cor != this.Cor;
+    }
+    public abstract bool[,] MovimentosPossiveis();
 }

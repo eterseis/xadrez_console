@@ -15,12 +15,19 @@ class Program
             {
                 Console.Clear();
                 Tela.ImprimirTabuleiro(partida._tabuleiro);
-                Console.Write("Origem: ");
+                Console.Write("\nOrigem: ");
                 Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
-                Console.Write("Destino: ");
+
+                bool[,] posicoesPossiveis = partida._tabuleiro.Peca(origem).MovimentosPossiveis();
+                Console.Clear();
+                Tela.ImprimirTabuleiro(partida._tabuleiro, posicoesPossiveis);
+
+
+                Console.Write("\nDestino: ");
                 Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
-               partida.ExecMovimento(origem, destino);
-                
+
+                partida.ExecMovimento(origem, destino);
+
             }
 
         }
