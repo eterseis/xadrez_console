@@ -23,5 +23,24 @@ public abstract class Peca
         Peca p = Tabuleiro.Peca(pos);
         return p == null || p.Cor != this.Cor;
     }
+    public bool ExisteMovimentosPossiveis()
+    {
+        bool[,] mat = MovimentosPossiveis();
+        for (int v = 0; v < Tabuleiro.Linhas; v++)
+        {
+            for (int j = 0; j < Tabuleiro.Colunas; j++)
+            {
+                if (mat[v, j])
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public bool PodeMoverPara(Posicao pos)
+    {
+        return MovimentosPossiveis()[pos.Linha, pos.Coluna];
+    }
     public abstract bool[,] MovimentosPossiveis();
 }

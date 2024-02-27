@@ -13,20 +13,35 @@ class Program
             PartidaDeXadrez partida = new PartidaDeXadrez();
             while (!partida.Terminada)
             {
-                Console.Clear();
-                Tela.ImprimirTabuleiro(partida._tabuleiro);
-                Console.Write("\nOrigem: ");
-                Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                try
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida._tabuleiro);
+                    Console.WriteLine($"\nTurno: {partida._turno}");
+                    Console.WriteLine($"Aguardando jogada: {partida._jogadorAtual}");
 
-                bool[,] posicoesPossiveis = partida._tabuleiro.Peca(origem).MovimentosPossiveis();
-                Console.Clear();
-                Tela.ImprimirTabuleiro(partida._tabuleiro, posicoesPossiveis);
+                    Console.Write("\nOrigem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    partida.ValidarOrigem(origem);
+
+                    bool[,] posicoesPossiveis = partida._tabuleiro.Peca(origem).MovimentosPossiveis();
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida._tabuleiro, posicoesPossiveis);
 
 
-                Console.Write("\nDestino: ");
-                Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                    Console.Write("\nDestino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                    partida.ValidarDestino(origem, destino);
 
-                partida.ExecMovimento(origem, destino);
+                    partida.RealizaJogada(origem, destino);
+                }
+                catch (TabuleiroException x)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(x.Message);
+                    Thread.Sleep(2000);
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
 
             }
 

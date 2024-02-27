@@ -1,10 +1,12 @@
-﻿namespace xadrez_console;
+﻿using System.Threading.Tasks.Dataflow;
+
+namespace xadrez_console;
 
 public class PartidaDeXadrez
 {
     public Tabuleiro _tabuleiro { get; private set; }
-    private int _turno;
-    private Cor _jogadorAtual;
+    public int _turno { get; private set; }
+    public Cor _jogadorAtual { get; private set; }
     public bool Terminada { get; private set; }
 
     public PartidaDeXadrez()
@@ -22,6 +24,46 @@ public class PartidaDeXadrez
         Peca pecaCapturada = _tabuleiro.RetirarPeca(destino);
         _tabuleiro.ColocarPeca(p, destino);
 
+    }
+    public void RealizaJogada(Posicao origem, Posicao destino)
+    {
+        ExecMovimento(origem, destino);
+        _turno++;
+        MudarJogador();
+
+    }
+    public void ValidarOrigem(Posicao pos)
+    {
+        if (_tabuleiro.Peca(pos) == null)
+        {
+            throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
+        }
+        if (_jogadorAtual != _tabuleiro.Peca(pos).Cor)
+        {
+            throw new TabuleiroException("A peça de origem escolhida não é sua!");
+        }
+        if (!_tabuleiro.Peca(pos).ExisteMovimentosPossiveis())
+        {
+            throw new TabuleiroException("Não há movimentos possíveis para essa peça!");
+        }
+    }
+    public void ValidarDestino(Posicao origem, Posicao destino)
+    {
+        if (!_tabuleiro.Peca(origem).PodeMoverPara(destino))
+        {
+            throw new TabuleiroException("Posição de destino inválida!");
+        }
+    }
+    private void MudarJogador()
+    {
+        if (_jogadorAtual == Cor.Branca)
+        {
+            _jogadorAtual = Cor.Preta;
+        }
+        else
+        {
+            _jogadorAtual = Cor.Branca;
+        }
     }
     private void ColocarPecas()
     {
