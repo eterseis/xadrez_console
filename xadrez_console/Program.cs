@@ -17,8 +17,7 @@ class Program
                 {
                     Console.Clear();
                     Tela.ImprimirTabuleiro(partida._tabuleiro);
-                    Console.WriteLine($"\nTurno: {partida._turno}");
-                    Console.WriteLine($"Aguardando jogada: {partida._jogadorAtual}");
+                    Tela.ImprimirPecasCapturadas(partida);
 
                     Console.Write("\nOrigem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
