@@ -16,8 +16,7 @@ class Program
                 try
                 {
                     Console.Clear();
-                    Tela.ImprimirTabuleiro(partida._tabuleiro);
-                    Tela.ImprimirPecasCapturadas(partida);
+                    Tela.ImprimirPartida(partida);
 
                     Console.Write("\nOrigem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();

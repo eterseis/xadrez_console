@@ -18,6 +18,10 @@ public abstract class Peca
     {
         QntMovs++;
     }
+    public void DecrementarQtMovimentos()
+    {
+        QntMovs--;
+    }
     public virtual bool PoderMover(Posicao pos)
     {
         Peca p = Tabuleiro.Peca(pos);

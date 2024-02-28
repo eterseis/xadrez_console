@@ -7,8 +7,15 @@ public static class Tela
     public static void ImprimirPartida(PartidaDeXadrez partida)
     {
         ImprimirTabuleiro(partida._tabuleiro);
-        Console.WriteLine($"\nTurno: {partida._turno}\n");
+        ImprimirPecasCapturadas(partida);
+        Console.WriteLine($"\nTurno: {partida._turno}");
         Console.WriteLine($"Aguardando jogada: {partida._jogadorAtual}");
+        if (partida.Xeque)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("XEQUE!");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
     public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
     {
