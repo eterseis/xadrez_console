@@ -9,12 +9,20 @@ public static class Tela
         ImprimirTabuleiro(partida._tabuleiro);
         ImprimirPecasCapturadas(partida);
         Console.WriteLine($"\nTurno: {partida._turno}");
-        Console.WriteLine($"Aguardando jogada: {partida._jogadorAtual}");
-        if (partida.Xeque)
+        if (!partida.Terminada)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("XEQUE!");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"Aguardando jogada: {partida._jogadorAtual}");
+            if (partida.Xeque)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("XEQUE!");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
+        else if (partida.Xeque)
+        {
+            Console.WriteLine("XEQUEMATE!");
+            Console.WriteLine($"Vencedor: {partida._jogadorAtual}");
         }
     }
     public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)

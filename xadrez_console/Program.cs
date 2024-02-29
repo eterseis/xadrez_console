@@ -42,6 +42,8 @@ class Program
                 }
 
             }
+            Console.Clear();
+            Tela.ImprimirPartida(partida);
 
         }
         catch (TabuleiroException x)
