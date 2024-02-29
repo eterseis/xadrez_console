@@ -82,6 +82,21 @@ public class PartidaDeXadrez
             DesfazMovimento(origem, destino, pecaCapturada);
             throw new TabuleiroException("Você não pode se colocar em xeque!");
         }
+
+        Peca p = _tabuleiro.Peca(destino);
+        //#jogadaEspecialPromoção
+        if (p is Peao)
+        {
+            if ((p.Cor == Cor.Branca && destino.Linha == 0) || (p.Cor == Cor.Preta && destino.Linha == 7))
+            {
+                p = _tabuleiro.RetirarPeca(destino);
+                Pecas.Remove(p);
+                Peca dama = new Dama(_tabuleiro, p.Cor);
+                _tabuleiro.ColocarPeca(dama, destino);
+                Pecas.Add(dama);
+            }
+        }
+
         if (EstaEmXeque(Adversaria(_jogadorAtual)))
         {
             Xeque = true;
@@ -100,7 +115,7 @@ public class PartidaDeXadrez
             MudarJogador();
         }
 
-        Peca p = _tabuleiro.Peca(destino);
+        p = _tabuleiro.Peca(destino);
         // # jogada especial en passant
         if (p is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
         {
