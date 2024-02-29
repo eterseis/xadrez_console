@@ -203,12 +203,42 @@ public class PartidaDeXadrez
     }
     private void ColocarPecas()
     {
-        ColocarNovaPeca('d', 1, new Rei(_tabuleiro, Cor.Branca));
-        ColocarNovaPeca('c', 1, new Torre(_tabuleiro, Cor.Branca));
-        ColocarNovaPeca('h', 7, new Torre(_tabuleiro, Cor.Branca));
+        //Brancas
+        ColocarNovaPeca('a', 1, new Torre(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('b', 1, new Cavalo(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('c', 1, new Bispo(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('d', 1, new Dama(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('e', 1, new Rei(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('f', 1, new Bispo(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('g', 1, new Cavalo(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('h', 1, new Torre(_tabuleiro, Cor.Branca));
 
+        ColocarNovaPeca('a', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('b', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('c', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('d', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('e', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('f', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('g', 2, new Peao(_tabuleiro, Cor.Branca));
+        ColocarNovaPeca('h', 2, new Peao(_tabuleiro, Cor.Branca));
 
-        ColocarNovaPeca('a', 8, new Rei(_tabuleiro, Cor.Preta));
-        ColocarNovaPeca('b', 8, new Torre(_tabuleiro, Cor.Preta));
+        //Pretas
+        ColocarNovaPeca('a', 8, new Torre(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('b', 8, new Cavalo(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('c', 8, new Bispo(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('d', 8, new Dama(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('e', 8, new Rei(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('f', 8, new Bispo(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('g', 8, new Cavalo(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('h', 8, new Torre(_tabuleiro, Cor.Preta));
+
+        ColocarNovaPeca('a', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('b', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('c', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('d', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('e', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('f', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('g', 7, new Peao(_tabuleiro, Cor.Preta));
+        ColocarNovaPeca('h', 7, new Peao(_tabuleiro, Cor.Preta));
     }
 }

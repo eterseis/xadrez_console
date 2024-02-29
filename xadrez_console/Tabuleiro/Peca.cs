@@ -22,7 +22,7 @@ public abstract class Peca
     {
         QntMovs--;
     }
-    public virtual bool PoderMover(Posicao pos)
+    public virtual bool PodeMover(Posicao pos)
     {
         Peca p = Tabuleiro.Peca(pos);
         return p == null || p.Cor != this.Cor;
