@@ -47,6 +47,7 @@ public static class Tela
     }
     public static void ImprimirTabuleiro(Tabuleiro tabuleiro)
     {
+        Console.Clear();
         for (int v = 0; v < tabuleiro.Linhas; v++)
         {
             Console.Write(8 - v + " ");
